@@ -17,12 +17,17 @@ public class Loader {
         String port = System.getenv("PORT");
         String host = "http://0.0.0.0:";
         String uri = "/service";
-        //SimpleService service = new SimpleService();
-        CartaoRN cartaoRN = new CartaoRN();
+        SimpleService service = new SimpleService();
+        Endpoint.publish(host + port + uri,service);
+        
+        
+        uri = "/"+CartaoRN.class.getName();
+        System.out.println(uri);
+        //Endpoint.publish(host + port + uri,cartaoRN);
+        //CartaoRN cartaoRN = new CartaoRN();
         //UsuarioRN usuarioRN = new UsuarioRN();
         //EstabelecimentoRN estabelecimentoRN = new EstabelecimentoRN();
-        //Endpoint.publish(host + port + uri,service);
-        Endpoint.publish(host + port + uri,cartaoRN);
+        
         //Endpoint.publish(host + port + uri,usuarioRN);
         //Endpoint.publish(host + port + uri,estabelecimentoRN);
         
