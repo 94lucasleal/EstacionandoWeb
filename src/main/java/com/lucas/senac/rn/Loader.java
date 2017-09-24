@@ -1,5 +1,8 @@
 package com.lucas.senac.rn;
 
+import com.lucas.senac.rn.usuario.UsuarioRN;
+import com.lucas.senac.rn.estabelecimento.EstabelecimentoRN;
+import com.lucas.senac.rn.cartao.CartaoRN;
 import java.net.MalformedURLException;
 import javax.xml.ws.Endpoint;
 import javax.xml.ws.WebServiceFeature;
