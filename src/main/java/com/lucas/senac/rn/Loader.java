@@ -1,4 +1,4 @@
-package com.senac.lucas.teste1;
+package com.lucas.senac.rn;
 
 import com.lucas.senac.rn.CartaoRN;
 import com.lucas.senac.rn.EstabelecimentoRN;

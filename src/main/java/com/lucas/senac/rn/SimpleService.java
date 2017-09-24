@@ -1,4 +1,4 @@
-package com.senac.lucas.teste1;
+package com.lucas.senac.rn;
 
 import javax.jws.WebService;
 
@@ -7,7 +7,7 @@ import javax.jws.WebService;
  * @author douglasgabriel
  * @version 0.1
  */
-@WebService(endpointInterface = "com.senac.lucas.teste1.SimpleService", serviceName = "SimpleService")
+@WebService(endpointInterface = "com.lucas.senac.SimpleService", serviceName = "SimpleService")
 public class SimpleService {
 
     public String hello (String name){
