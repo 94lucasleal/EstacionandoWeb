@@ -7,7 +7,7 @@ import com.lucas.senac.rnval.EstabalecimentoRNVAL;
 import java.util.List;
 import javax.jws.WebParam;
 
-@WebService(endpointInterface = "com.senac.lucas.teste1.EstabelecimentoRN", serviceName = "EstabelecimentoRN")
+@WebService(endpointInterface = "com.senac.lucas.rn.EstabelecimentoRN", serviceName = "EstabelecimentoRN")
 public class EstabelecimentoRN {
 
     private final EstabelecimetoBD estabelecimetoBD;

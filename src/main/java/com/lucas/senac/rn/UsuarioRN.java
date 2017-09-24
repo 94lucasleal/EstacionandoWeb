@@ -7,7 +7,7 @@ import java.util.List;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 
-@WebService(endpointInterface = "com.senac.lucas.teste1.UsuarioRN", serviceName = "UsuarioRN")
+@WebService(endpointInterface = "com.senac.lucas.rn.UsuarioRN", serviceName = "UsuarioRN")
 public class UsuarioRN {
     
     private final UsuarioBD usuarioBD;
