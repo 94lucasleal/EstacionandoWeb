@@ -20,7 +20,7 @@ public class Loader {
         //SimpleService service = new SimpleService();
         //Endpoint.publish(host + port + uri,service);
               
-        uri = "/"+CartaoRN.class.getSimpleName();
+        uri = "/CartaoRN";
         CartaoRN cartaoRN = new CartaoRN();
         Endpoint.publish(host + port + uri,cartaoRN);
         
