@@ -20,15 +20,15 @@ public class Loader {
         SimpleService service = new SimpleService();
         Endpoint.publish(host + port + uri,service);
               
-        uri = "/"+CartaoRN.class.getName();
+        uri = "/"+CartaoRN.class.getSimpleName();
         CartaoRN cartaoRN = new CartaoRN();
         Endpoint.publish(host + port + uri,cartaoRN);
         
-        uri = "/"+UsuarioRN.class.getName();
+        uri = "/"+UsuarioRN.class.getSimpleName();
         UsuarioRN usuarioRN = new UsuarioRN();
         Endpoint.publish(host + port + uri,usuarioRN);
         
-        uri = "/"+EstabelecimentoRN.class.getName();
+        uri = "/"+EstabelecimentoRN.class.getSimpleName();
         EstabelecimentoRN estabelecimentoRN = new EstabelecimentoRN();
         Endpoint.publish(host + port + uri,estabelecimentoRN);  
     }
