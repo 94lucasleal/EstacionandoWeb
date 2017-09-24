@@ -14,10 +14,11 @@ public class Loader {
     public static void main(String[] args) throws MalformedURLException {
         String port = System.getenv("PORT");
         String host = "http://0.0.0.0:";
-        String uri = "/"+SimpleService.class.getSimpleName();
+        String uri = "/service";
         SimpleService service = new SimpleService();
         Endpoint.publish(host + port + uri,service);
-              
+        
+        /*
         String uri1 = "/"+CartaoRN.class.getSimpleName();
         CartaoRN cartaoRN = new CartaoRN();
         Endpoint.publish(host + port + uri1,cartaoRN);
@@ -29,6 +30,7 @@ public class Loader {
         String uri3 = "/"+EstabelecimentoRN.class.getSimpleName();
         EstabelecimentoRN estabelecimentoRN = new EstabelecimentoRN();
         Endpoint.publish(host + port + uri3,estabelecimentoRN); 
+        */
         
     }
 }
