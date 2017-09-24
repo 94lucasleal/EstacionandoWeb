@@ -13,7 +13,7 @@ import java.util.List;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 
-@WebService()
+@WebService(endpointInterface = "com.lucas.senac.rn.SimpleService", serviceName = "SimpleService")
 public class SimpleService{
     
     private final CartaoBD cartaoBD;

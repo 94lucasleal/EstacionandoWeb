@@ -4,11 +4,6 @@ import java.net.MalformedURLException;
 import javax.xml.ws.Endpoint;
 import javax.xml.ws.WebServiceFeature;
 
-/**
- *
- * @author douglasgabriel
- * @version 0.1
- */
 public class Loader {
 
     public static void main(String[] args) throws MalformedURLException {
