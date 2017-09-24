@@ -7,7 +7,7 @@ import javax.jws.WebService;
  * @author douglasgabriel
  * @version 0.1
  */
-@WebService(serviceName = "SimpleService")
+@WebService()
 public class SimpleService{
 
     public String hello (String name){
