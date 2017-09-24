@@ -22,9 +22,9 @@ public class Loader {
         UsuarioRN usuarioRN = new UsuarioRN();
         EstabelecimentoRN estabelecimentoRN = new EstabelecimentoRN();
         Endpoint.publish(host + port + uri,service);
-        Endpoint.publish(host + port + uri,cartaoRN);
-        Endpoint.publish(host + port + uri,usuarioRN);
-        Endpoint.publish(host + port + uri,estabelecimentoRN);
+        //Endpoint.publish(host + port + uri,cartaoRN);
+        //Endpoint.publish(host + port + uri,usuarioRN);
+        //Endpoint.publish(host + port + uri,estabelecimentoRN);
         
     }
 }
