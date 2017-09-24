@@ -16,22 +16,22 @@ public class Loader {
         String host = "http://0.0.0.0:";
         String uri = "/"+SimpleService.class.getSimpleName();
         SimpleService service = new SimpleService();
-        Endpoint.publish(host + "1234" + uri,service);
+        Endpoint.publish(host + port + uri,service);
               
         port = System.getenv("PORT");
-        uri = "/"+CartaoRN.class.getSimpleName();
+        String uri1 = "/"+CartaoRN.class.getSimpleName();
         CartaoRN cartaoRN = new CartaoRN();
-        Endpoint.publish(host + "1235" + uri,cartaoRN);
+        Endpoint.publish(host + port + uri1,cartaoRN);
         
         port = System.getenv("PORT");
-        uri = "/"+UsuarioRN.class.getSimpleName();
+        String uri2 = "/"+UsuarioRN.class.getSimpleName();
         UsuarioRN usuarioRN = new UsuarioRN();
-        Endpoint.publish(host + "1236" + uri,usuarioRN);
+        Endpoint.publish(host + port + uri2,usuarioRN);
         
         port = System.getenv("PORT");
-        uri = "/"+EstabelecimentoRN.class.getSimpleName();
+        String uri3 = "/"+EstabelecimentoRN.class.getSimpleName();
         EstabelecimentoRN estabelecimentoRN = new EstabelecimentoRN();
-        Endpoint.publish(host + "1237" + uri,estabelecimentoRN); 
+        Endpoint.publish(host + port + uri3,estabelecimentoRN); 
         
     }
 }
