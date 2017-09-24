@@ -1,5 +1,8 @@
 package com.senac.lucas.teste1;
 
+import com.lucas.senac.rn.CartaoRN;
+import com.lucas.senac.rn.EstabelecimentoRN;
+import com.lucas.senac.rn.UsuarioRN;
 import java.net.MalformedURLException;
 import javax.xml.ws.Endpoint;
 
@@ -15,7 +18,13 @@ public class Loader {
         String host = "http://0.0.0.0:";
         String uri = "/service";
         SimpleService service = new SimpleService();
-        Endpoint.publish(host + port + uri, service);
+        CartaoRN cartaoRN = new CartaoRN();
+        UsuarioRN usuarioRN = new UsuarioRN();
+        EstabelecimentoRN estabelecimentoRN = new EstabelecimentoRN();
+        Endpoint.publish(host + port + uri,service);
+        Endpoint.publish(host + port + uri,cartaoRN);
+        Endpoint.publish(host + port + uri,usuarioRN);
+        Endpoint.publish(host + port + uri,estabelecimentoRN);
         
     }
 }
