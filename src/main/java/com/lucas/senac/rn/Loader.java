@@ -15,7 +15,7 @@ public class Loader {
         String host = "http://0.0.0.0:";
         String uri = "/"+SimpleService.class.getSimpleName();
         SimpleService service = new SimpleService();
-        Endpoint.publish(host + port + uri,service);
+        //Endpoint.publish(host + port + uri,service);
               
         uri = "/"+CartaoRN.class.getSimpleName();
         CartaoRN cartaoRN = new CartaoRN();
