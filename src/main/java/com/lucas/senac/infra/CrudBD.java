@@ -19,13 +19,13 @@ public abstract class CrudBD<T> {
     protected final String BD_PASSWORD = "";
 
     public CrudBD() {
-        try {
+       /* try {
             System.out.println("Identificando Driver JDBC");
             Class.forName("com.mysql.jdbc.Driver");
             System.out.println("Driver JDBC identificado com sucesso");
         } catch (Exception ex) {
             throw new RuntimeException(ex);
-        }
+        }*/
     }
 
     public Connection abrirConexao() {
