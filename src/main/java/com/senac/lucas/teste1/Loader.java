@@ -16,20 +16,20 @@ public class Loader {
     public static void main(String[] args) throws MalformedURLException {
         String port = System.getenv("PORT");
         String host = "http://0.0.0.0:";
-        String uri = "/service";
+        String uri = "/"+SimpleService.class.getSimpleName();
         SimpleService service = new SimpleService();
         Endpoint.publish(host + port + uri,service);
-        
-        
+              
         uri = "/"+CartaoRN.class.getName();
-        System.out.println(uri);
-        //Endpoint.publish(host + port + uri,cartaoRN);
-        //CartaoRN cartaoRN = new CartaoRN();
-        //UsuarioRN usuarioRN = new UsuarioRN();
-        //EstabelecimentoRN estabelecimentoRN = new EstabelecimentoRN();
+        CartaoRN cartaoRN = new CartaoRN();
+        Endpoint.publish(host + port + uri,cartaoRN);
         
-        //Endpoint.publish(host + port + uri,usuarioRN);
-        //Endpoint.publish(host + port + uri,estabelecimentoRN);
+        uri = "/"+UsuarioRN.class.getName();
+        UsuarioRN usuarioRN = new UsuarioRN();
+        Endpoint.publish(host + port + uri,usuarioRN);
         
+        uri = "/"+EstabelecimentoRN.class.getName();
+        EstabelecimentoRN estabelecimentoRN = new EstabelecimentoRN();
+        Endpoint.publish(host + port + uri,estabelecimentoRN);  
     }
 }
