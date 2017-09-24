@@ -1,4 +1,4 @@
-package com.lucas.senac.rn.cartao;
+package com.lucas.senac.rn;
 
 import com.lucas.senac.bd.CartaoBD;
 import com.lucas.senac.bean.Cartao;
@@ -7,7 +7,7 @@ import java.util.List;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 
-@WebService(endpointInterface = "com.lucas.senac.rn.cartao.CartaoRN", serviceName = "CartaoRN")
+@WebService(serviceName = "CartaoRN")
 public class CartaoRN {
     
     private final CartaoBD cartaoBD;

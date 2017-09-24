@@ -1,4 +1,4 @@
-package com.lucas.senac.rn.usuario;
+package com.lucas.senac.rn;
 
 import com.lucas.senac.bd.UsuarioBD;
 import com.lucas.senac.bean.Usuario;
@@ -7,7 +7,7 @@ import java.util.List;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 
-@WebService(endpointInterface = "com.lucas.senac.rn.usuario.UsuarioRN", serviceName = "UsuarioRN")
+@WebService(endpointInterface = "com.lucas.senac.rn.UsuarioRN", serviceName = "UsuarioRN")
 public class UsuarioRN {
     
     private final UsuarioBD usuarioBD;
