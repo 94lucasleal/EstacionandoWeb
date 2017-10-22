@@ -7,17 +7,18 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-public class EstabelecimetoBD extends CrudBD<Estabelecimento>{
-    
+public class EstabelecimetoBD extends CrudBD<Estabelecimento> {
+
     public void inserirEstabelecimento(Estabelecimento bean) {
         Connection conn = null;
         try {
             conn = abrirConexao();
 
             PreparedStatement pstm = conn.prepareStatement("INSERT INTO estabelecimento (idestabelecimento, idusuario, "
-                                                         + "idtipoestabelecimento, razaoSocial, cnpj, estado, bairro, "
-                                                         + "logradouro, cep, numero, referencia, latitude, longitude) "
-                                                         + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                    + "idtipoestabelecimento, razaoSocial, cnpj, estado, bairro, "
+                    + "logradouro, cep, numero, referencia, latitude, longitude,"
+                    + "valormeiahora, valorhora, valordiaria, valormensal, valoradicional, imagem) "
+                    + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
             pstm.setInt(1, bean.getIdUsuario());
             pstm.setInt(2, bean.getIdTipoEstabelecimento());
             pstm.setString(3, bean.getRazaoSocial());
@@ -31,6 +32,12 @@ public class EstabelecimetoBD extends CrudBD<Estabelecimento>{
             pstm.setString(11, bean.getReferencia());
             pstm.setDouble(12, bean.getLatitude());
             pstm.setDouble(13, bean.getLongitude());
+            pstm.setDouble(14, bean.getValormeiahora());
+            pstm.setDouble(15, bean.getValorhora());
+            pstm.setDouble(16, bean.getValordiaria());
+            pstm.setDouble(17, bean.getValormensal());
+            pstm.setDouble(18, bean.getValoradicional());
+            pstm.setInt(19, bean.getImagem());
 
             System.out.println("Salvando: " + bean);
             pstm.execute();
@@ -93,6 +100,12 @@ public class EstabelecimetoBD extends CrudBD<Estabelecimento>{
                 estabelecimentoRetorno.setReferencia(rs.getString("referencia"));
                 estabelecimentoRetorno.setLatitude(rs.getDouble("latitude"));
                 estabelecimentoRetorno.setLongitude(rs.getDouble("longitude"));
+                estabelecimentoRetorno.setValormeiahora(rs.getDouble("valormeiahora"));
+                estabelecimentoRetorno.setValorhora(rs.getDouble("valorhora"));
+                estabelecimentoRetorno.setValordiaria(rs.getDouble("valordiaria"));
+                estabelecimentoRetorno.setValormensal(rs.getDouble("valormensal"));
+                estabelecimentoRetorno.setValoradicional(rs.getDouble("valoradicional"));
+                estabelecimentoRetorno.setImagem(rs.getInt("imagem"));
             }
             System.out.println("Consulta executada com sucesso");
         } catch (Exception e) {
@@ -109,9 +122,10 @@ public class EstabelecimetoBD extends CrudBD<Estabelecimento>{
             conn = abrirConexao();
 
             PreparedStatement pstm = conn.prepareStatement("UPDATE estabelecimento SET idusuario = ?, "
-                                                         + "idtipoestabelecimento = ?, razaoSocial = ?, cnpj = ?, estado = ?, bairro = ?, "
-                                                         + "logradouro = ?, cep, numero = ?, referencia = ?, latitude = ?, longitude = ?) "
-                                                         + "WHERE idestacionamento = ?");
+                    + "idtipoestabelecimento = ?, razaoSocial = ?, cnpj = ?, estado = ?, municipio = ?, bairro = ?, "
+                    + "logradouro = ?, cep = ?, numero = ?, referencia = ?, latitude = ?, longitude = ?,"
+                    + "valormeiahora = ?, valorhora = ?, valordiaria = ?, valormensal = ?, valoradicional = ?, imagem = ?) "
+                    + "WHERE idestacionamento = ?");
             pstm.setInt(1, bean.getIdUsuario());
             pstm.setInt(2, bean.getIdTipoEstabelecimento());
             pstm.setString(3, bean.getRazaoSocial());
@@ -125,7 +139,13 @@ public class EstabelecimetoBD extends CrudBD<Estabelecimento>{
             pstm.setString(11, bean.getReferencia());
             pstm.setDouble(12, bean.getLatitude());
             pstm.setDouble(13, bean.getLongitude());
-            pstm.setInt(14, bean.getIdEstacionamento());
+            pstm.setDouble(14, bean.getValormeiahora());
+            pstm.setDouble(15, bean.getValorhora());
+            pstm.setDouble(16, bean.getValordiaria());
+            pstm.setDouble(17, bean.getValormensal());
+            pstm.setDouble(18, bean.getValoradicional());
+            pstm.setInt(19, bean.getImagem());
+            pstm.setInt(20, bean.getIdEstacionamento());
 
             System.out.println("Alterando: " + bean);
             pstm.execute();
@@ -142,7 +162,7 @@ public class EstabelecimetoBD extends CrudBD<Estabelecimento>{
 
     public ArrayList<Estabelecimento> pesquisarEstabelecimento(String pesquisa) {
         ArrayList<Estabelecimento> lista = new ArrayList<Estabelecimento>();
-        
+
         Connection conn = null;
         try {
             conn = abrirConexao();
@@ -155,7 +175,7 @@ public class EstabelecimetoBD extends CrudBD<Estabelecimento>{
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
                 System.out.println("Registro encontrado");
-                
+
                 Estabelecimento estabelecimento = new Estabelecimento();
                 estabelecimento.setIdEstacionamento(rs.getInt("idestabelecimento"));
                 estabelecimento.setIdUsuario(rs.getInt("idusuario"));
@@ -171,7 +191,13 @@ public class EstabelecimetoBD extends CrudBD<Estabelecimento>{
                 estabelecimento.setReferencia(rs.getString("referencia"));
                 estabelecimento.setLatitude(rs.getDouble("latitude"));
                 estabelecimento.setLongitude(rs.getDouble("longitude"));
-                
+                estabelecimento.setValormeiahora(rs.getDouble("valormeiahora"));
+                estabelecimento.setValorhora(rs.getDouble("valorhora"));
+                estabelecimento.setValordiaria(rs.getDouble("valordiaria"));
+                estabelecimento.setValormensal(rs.getDouble("valormensal"));
+                estabelecimento.setValoradicional(rs.getDouble("valoradicional"));
+                estabelecimento.setImagem(rs.getInt("imagem"));
+
                 lista.add(estabelecimento);
                 System.out.println(estabelecimento.toString());
             }
@@ -183,10 +209,10 @@ public class EstabelecimetoBD extends CrudBD<Estabelecimento>{
         }
         return lista;
     }
-    
+
     public ArrayList<Estabelecimento> buscarTodosEstabelecimento() {
         ArrayList<Estabelecimento> lista = new ArrayList<Estabelecimento>();
-        
+
         Connection conn = null;
         try {
             conn = abrirConexao();
@@ -197,7 +223,7 @@ public class EstabelecimetoBD extends CrudBD<Estabelecimento>{
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
                 System.out.println("Registro encontrado");
-                
+
                 Estabelecimento estabelecimento = new Estabelecimento();
                 estabelecimento.setIdEstacionamento(rs.getInt("idestabelecimento"));
                 estabelecimento.setIdUsuario(rs.getInt("idusuario"));
@@ -213,7 +239,13 @@ public class EstabelecimetoBD extends CrudBD<Estabelecimento>{
                 estabelecimento.setReferencia(rs.getString("referencia"));
                 estabelecimento.setLatitude(rs.getDouble("latitude"));
                 estabelecimento.setLongitude(rs.getDouble("longitude"));
-                
+                estabelecimento.setValormeiahora(rs.getDouble("valormeiahora"));
+                estabelecimento.setValorhora(rs.getDouble("valorhora"));
+                estabelecimento.setValordiaria(rs.getDouble("valordiaria"));
+                estabelecimento.setValormensal(rs.getDouble("valormensal"));
+                estabelecimento.setValoradicional(rs.getDouble("valoradicional"));
+                estabelecimento.setImagem(rs.getInt("imagem"));
+
                 lista.add(estabelecimento);
                 System.out.println(estabelecimento.toString());
             }
@@ -225,5 +257,5 @@ public class EstabelecimetoBD extends CrudBD<Estabelecimento>{
         }
         return lista;
     }
-    
+
 }

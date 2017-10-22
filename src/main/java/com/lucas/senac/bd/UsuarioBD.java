@@ -14,11 +14,14 @@ public class UsuarioBD extends CrudBD<Usuario>{
         try {
             conn = abrirConexao();
 
-            PreparedStatement pstm = conn.prepareStatement("INSERT INTO usuario(nome, cpf, rg, idyipoacesso) VALUES (?,?,?,?)");
+            PreparedStatement pstm = conn.prepareStatement("INSERT INTO usuario(nome, cpf, rg, email, senha, idtipoacesso, telefone) VALUES (?,?,?,?,?,?,?)");
             pstm.setString(1, usuario.getNome());
             pstm.setString(2, usuario.getCpf());
             pstm.setString(3, usuario.getRg());
-            pstm.setInt(4, usuario.getIdTipoAcesso());
+            pstm.setString(4, usuario.getEmail());
+            pstm.setString(5, usuario.getSenha());
+            pstm.setInt(6, usuario.getIdTipoAcesso());
+            pstm.setInt(7, usuario.getTelefone());
 
             System.out.println("Salvando: " + usuario);
             pstm.execute();
@@ -59,8 +62,9 @@ public class UsuarioBD extends CrudBD<Usuario>{
         try {
             conn = abrirConexao();
 
-            PreparedStatement pstm = conn.prepareStatement("SELECT * FROM usuario WHERE idusuario=?");
-            pstm.setInt(1, bean.getIdUsuario());
+            PreparedStatement pstm = conn.prepareStatement("SELECT * FROM usuario WHERE email = ? and senha = ?");
+            pstm.setString(1, bean.getEmail());
+            pstm.setString(2, bean.getSenha());
 
             System.out.println("Consultando: " + bean);
             ResultSet rs = pstm.executeQuery();
@@ -71,7 +75,10 @@ public class UsuarioBD extends CrudBD<Usuario>{
                 usuarioRetorno.setNome(rs.getString("nome"));
                 usuarioRetorno.setCpf(rs.getString("cpf"));
                 usuarioRetorno.setRg(rs.getString("rg"));
+                usuarioRetorno.setEmail(rs.getString("email"));
+                usuarioRetorno.setSenha(rs.getString("senha"));
                 usuarioRetorno.setIdTipoAcesso(rs.getInt("idtipoacesso"));
+                usuarioRetorno.setTelefone(rs.getInt("telefone"));
             }
             System.out.println("Consulta executada com sucesso");
         } catch (Exception e) {
@@ -88,12 +95,15 @@ public class UsuarioBD extends CrudBD<Usuario>{
         try {
             conn = abrirConexao();
 
-            PreparedStatement pstm = conn.prepareStatement("UPDATE usuario SET nome = ?, cpf = ?, rg = ?, idtipoacesso = ? WHERE idusuario = ?");
+            PreparedStatement pstm = conn.prepareStatement("UPDATE usuario SET nome = ?, cpf = ?, rg = ?, email = ?, senha = ?, idtipoacesso = ?, telefone = ? WHERE idusuario = ?");
             pstm.setString(1, bean.getNome());
             pstm.setString(2, bean.getCpf());
             pstm.setString(3, bean.getRg());
-            pstm.setInt(4, bean.getIdTipoAcesso());
-            pstm.setInt(5, bean.getIdUsuario());
+            pstm.setString(4, bean.getEmail());
+            pstm.setString(5, bean.getSenha());
+            pstm.setInt(6, bean.getIdTipoAcesso());
+            pstm.setInt(7, bean.getTelefone());
+            pstm.setInt(8, bean.getIdUsuario());
 
             System.out.println("Alterando: " + bean);
             pstm.execute();
@@ -130,7 +140,10 @@ public class UsuarioBD extends CrudBD<Usuario>{
                 usuario.setNome(rs.getString("nome"));
                 usuario.setCpf(rs.getString("cpf"));
                 usuario.setRg(rs.getString("rg"));
+                usuario.setEmail(rs.getString("email"));
+                usuario.setSenha(rs.getString("senha"));
                 usuario.setIdTipoAcesso(rs.getInt("idtipoacesso"));
+                usuario.setTelefone(rs.getInt("telefone"));
                 
                 lista.add(usuario);
                 System.out.println(usuario.toString());
@@ -163,7 +176,10 @@ public class UsuarioBD extends CrudBD<Usuario>{
                 usuario.setNome(rs.getString("nome"));
                 usuario.setCpf(rs.getString("cpf"));
                 usuario.setRg(rs.getString("rg"));
+                usuario.setEmail(rs.getString("email"));
+                usuario.setSenha(rs.getString("senha"));
                 usuario.setIdTipoAcesso(rs.getInt("idtipoacesso"));
+                usuario.setTelefone(rs.getInt("telefone"));
                 
                 lista.add(usuario);
                 System.out.println(usuario.toString());

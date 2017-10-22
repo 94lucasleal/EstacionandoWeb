@@ -21,25 +21,21 @@ public class CartaoRN {
     public void inserirCartao(@WebParam(name = "idCartao") Integer idCartao,
                         @WebParam(name = "nomeTitular") String nomeTitular,
                         @WebParam(name = "cpfTitular") String cpfTitular,
-                        @WebParam(name = "numeroCartao") String numeroCartao,
-                        @WebParam(name = "codSeguranca") Integer codSeguranca) {
+                        @WebParam(name = "numeroCartao") String numeroCartao) {
 
-        Cartao cartao = new Cartao(idCartao,nomeTitular,cpfTitular,numeroCartao,codSeguranca);
-        System.out.println("Teste1");
-        //cartaoRNVal.validarInserirCartao(cartao);
-        //cartaoBD.inserirCartao(cartao);
+        Cartao cartao = new Cartao(idCartao,nomeTitular,cpfTitular,numeroCartao);
+        cartaoRNVal.validarInserirCartao(cartao);
+        cartaoBD.inserirCartao(cartao);
     }
 
     public void excluirCartao(@WebParam(name = "idCartao") Integer idCartao) {
-        System.out.println("Teste2");
-        Cartao cartao = new Cartao(idCartao,null,null,null,null);
-        //cartaoRNVal.validarExcluirCartao(cartao);
-        //cartaoBD.excluirCartao(cartao);
+        Cartao cartao = new Cartao(idCartao,null,null,null);
+        cartaoRNVal.validarExcluirCartao(cartao);
+        cartaoBD.excluirCartao(cartao);
     }
 
     public Cartao consultarCartao(@WebParam(name = "idCartao") Integer idCartao) {
-        System.out.println("Teste3");
-        Cartao cartao = new Cartao(idCartao,null,null,null,null);
+        Cartao cartao = new Cartao(idCartao,null,null,null);
         cartaoRNVal.validarConsultarCartao(cartao);
         return cartaoBD.consultarCartao(cartao);
     }
@@ -47,15 +43,14 @@ public class CartaoRN {
     public void alterarCartao(@WebParam(name = "idCartao") Integer idCartao,
                         @WebParam(name = "nomeTitular") String nomeTitular,
                         @WebParam(name = "cpfTitular") String cpfTitular,
-                        @WebParam(name = "numeroCartao") String numeroCartao,
-                        @WebParam(name = "codSeguranca") Integer codSeguranca) {
-        Cartao cartao = new Cartao(idCartao,nomeTitular,cpfTitular,numeroCartao,codSeguranca);
+                        @WebParam(name = "numeroCartao") String numeroCartao) {
+        
+        Cartao cartao = new Cartao(idCartao,nomeTitular,cpfTitular,numeroCartao);
         cartaoRNVal.validarAlterarCartao(cartao);
         cartaoBD.alterarCartao(cartao);
     }
 
     public List<Cartao> pesquisarCartao(@WebParam(name = "pesquisa") String pesquisa) {
-        System.out.println(pesquisa);
         return cartaoBD.pesquisarCartao(pesquisa);
     }
     

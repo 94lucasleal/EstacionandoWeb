@@ -1,7 +1,7 @@
 package com.lucas.senac.bean;
 
 public class Estabelecimento {
-    
+
     private Integer idEstacionamento;
     private Integer idUsuario;
     private Integer idTipoEstabelecimento;
@@ -16,11 +16,17 @@ public class Estabelecimento {
     private String referencia;
     private Double latitude;
     private Double longitude;
+    private Double valormeiahora;
+    private Double valorhora;
+    private Double valordiaria;
+    private Double valormensal;
+    private Double valoradicional;
+    private Integer imagem;
 
     public Estabelecimento() {
     }
 
-    public Estabelecimento(Integer idEstacionamento, Integer idUsuario, Integer idTipoEstabelecimento, String razaoSocial, String cnpj, String estado, String municipio, String bairro, String logradouro, Integer cep, Integer numero, String referencia, Double latitude, Double longitude) {
+    public Estabelecimento(Integer idEstacionamento, Integer idUsuario, Integer idTipoEstabelecimento, String razaoSocial, String cnpj, String estado, String municipio, String bairro, String logradouro, Integer cep, Integer numero, String referencia, Double latitude, Double longitude, Double valormeiahora, Double valorhora, Double valordiaria, Double valormensal, Double valoradicional, Integer imagem) {
         this.idEstacionamento = idEstacionamento;
         this.idUsuario = idUsuario;
         this.idTipoEstabelecimento = idTipoEstabelecimento;
@@ -35,6 +41,12 @@ public class Estabelecimento {
         this.referencia = referencia;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.valormeiahora = valormeiahora;
+        this.valorhora = valorhora;
+        this.valordiaria = valordiaria;
+        this.valormensal = valormensal;
+        this.valoradicional = valoradicional;
+        this.imagem = imagem;
     }
 
     public Integer getIdEstacionamento() {
@@ -149,9 +161,57 @@ public class Estabelecimento {
         this.longitude = longitude;
     }
 
+    public Double getValormeiahora() {
+        return valormeiahora;
+    }
+
+    public void setValormeiahora(Double valormeiahora) {
+        this.valormeiahora = valormeiahora;
+    }
+
+    public Double getValorhora() {
+        return valorhora;
+    }
+
+    public void setValorhora(Double valorhora) {
+        this.valorhora = valorhora;
+    }
+
+    public Double getValordiaria() {
+        return valordiaria;
+    }
+
+    public void setValordiaria(Double valordiaria) {
+        this.valordiaria = valordiaria;
+    }
+
+    public Double getValormensal() {
+        return valormensal;
+    }
+
+    public void setValormensal(Double valormensal) {
+        this.valormensal = valormensal;
+    }
+
+    public Double getValoradicional() {
+        return valoradicional;
+    }
+
+    public void setValoradicional(Double valoradicional) {
+        this.valoradicional = valoradicional;
+    }
+
+    public Integer getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(Integer imagem) {
+        this.imagem = imagem;
+    }
+
     @Override
     public String toString() {
-        return "Estabelecimento{" + "idEstacionamento=" + idEstacionamento + ", idUsuario=" + idUsuario + ", idTipoEstabelecimento=" + idTipoEstabelecimento + ", razaoSocial=" + razaoSocial + ", cnpj=" + cnpj + ", estado=" + estado + ", municipio=" + municipio + ", bairro=" + bairro + ", logradouro=" + logradouro + ", cep=" + cep + ", numero=" + numero + ", referencia=" + referencia + ", latitude=" + latitude + ", longitude=" + longitude + '}';
+        return "Estabelecimento{" + "idEstacionamento=" + idEstacionamento + ", idUsuario=" + idUsuario + ", idTipoEstabelecimento=" + idTipoEstabelecimento + ", razaoSocial=" + razaoSocial + ", cnpj=" + cnpj + ", estado=" + estado + ", municipio=" + municipio + ", bairro=" + bairro + ", logradouro=" + logradouro + ", cep=" + cep + ", numero=" + numero + ", referencia=" + referencia + ", latitude=" + latitude + ", longitude=" + longitude + ", valormeiahora=" + valormeiahora + ", valorhora=" + valorhora + ", valordiaria=" + valordiaria + ", valormensal=" + valormensal + ", valoradicional=" + valoradicional + ", imagem=" + imagem + '}';
     }
-        
+
 }

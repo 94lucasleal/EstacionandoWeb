@@ -1,22 +1,28 @@
 package com.lucas.senac.bean;
 
 public class Usuario {
-    
+
     private Integer idUsuario;
     private String nome;
     private String cpf;
     private String rg;
+    private String email;
+    private String senha;
     private Integer idTipoAcesso;
+    private Integer telefone;
 
     public Usuario() {
     }
 
-    public Usuario(Integer idUsuario, String nome, String cpf, String rg, Integer idTipoAcesso) {
+    public Usuario(Integer idUsuario, String nome, String cpf, String rg, String email, String senha, Integer idTipoAcesso, Integer telefone) {
         this.idUsuario = idUsuario;
         this.nome = nome;
         this.cpf = cpf;
         this.rg = rg;
+        this.email = email;
+        this.senha = senha;
         this.idTipoAcesso = idTipoAcesso;
+        this.telefone = telefone;
     }
 
     public Integer getIdUsuario() {
@@ -51,6 +57,22 @@ public class Usuario {
         this.rg = rg;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+
     public Integer getIdTipoAcesso() {
         return idTipoAcesso;
     }
@@ -59,9 +81,12 @@ public class Usuario {
         this.idTipoAcesso = idTipoAcesso;
     }
 
-    @Override
-    public String toString() {
-        return "Usuario{" + "idUsuario=" + idUsuario + ", nome=" + nome + ", cpf=" + cpf + ", rg=" + rg + ", idTipoAcesso=" + idTipoAcesso + '}';
+    public Integer getTelefone() {
+        return telefone;
     }
-    
+
+    public void setTelefone(Integer telefone) {
+        this.telefone = telefone;
+    }
+
 }

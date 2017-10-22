@@ -14,9 +14,6 @@ public class CartaoRNVAL {
         if (bean.getNumeroCartao().isEmpty()) {
             throw new RuntimeException("Campo NUMERO DO CARTAO não informado");
         }
-        if (bean.getCodSeguranca() == 0) {
-            throw new RuntimeException("Campo CODIGO DE SEGURANÇA não informado");
-        }
     }
 
     public void validarExcluirCartao(Cartao bean) {
@@ -24,7 +21,7 @@ public class CartaoRNVAL {
     }
 
     public void validarConsultarCartao(Cartao bean) {
-        if (bean.getIdCartao()== 0) {
+        if (bean.getIdCartao() == 0) {
             throw new RuntimeException("Campo Código não informado");
         }
     }

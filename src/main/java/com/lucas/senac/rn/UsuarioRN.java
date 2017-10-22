@@ -9,7 +9,7 @@ import javax.jws.WebService;
 
 @WebService(endpointInterface = "com.lucas.senac.rn.UsuarioRN", serviceName = "UsuarioRN")
 public class UsuarioRN {
-    
+
     private final UsuarioBD usuarioBD;
     private final UsuarioRNVAL usuarioRNVal;
 
@@ -17,36 +17,43 @@ public class UsuarioRN {
         usuarioBD = new UsuarioBD();
         usuarioRNVal = new UsuarioRNVAL();
     }
-    
-    public void inserirUsuario(@WebParam(name = "idUsuario") Integer idUsuario,
-                        @WebParam(name = "nome") String nome,
-                        @WebParam(name = "cpf") String cpf,
-                        @WebParam(name = "rg") String rg,
-                        @WebParam(name = "idTipoAcesso") Integer idTipoAcesso) {
 
-        Usuario usuario = new Usuario(idUsuario,nome,cpf,rg,idTipoAcesso);
+    public void inserirUsuario(@WebParam(name = "idUsuario") Integer idUsuario,
+            @WebParam(name = "nome") String nome,
+            @WebParam(name = "cpf") String cpf,
+            @WebParam(name = "rg") String rg,
+            @WebParam(name = "email") String email,
+            @WebParam(name = "senha") String senha,
+            @WebParam(name = "idTipoAcesso") Integer idTipoAcesso,
+            @WebParam(name = "telefone") Integer telefone) {
+
+        Usuario usuario = new Usuario(idUsuario, nome, cpf, rg, email, senha, idTipoAcesso, telefone);
         usuarioRNVal.validarInserirUsuario(usuario);
         usuarioBD.inserirUsuario(usuario);
     }
 
     public void excluirUsuario(@WebParam(name = "idUsuario") Integer idUsuario) {
-        Usuario usuario = new Usuario(idUsuario,null,null,null,null);
+        Usuario usuario = new Usuario(idUsuario, null, null, null, null, null, null, null);
         usuarioRNVal.validarExcluirUsuario(usuario);
         usuarioBD.excluirUsuario(usuario);
     }
 
-    public Usuario consultarUsuario(@WebParam(name = "idUsuario") Integer idUsuario) {
-        Usuario usuario = new Usuario(idUsuario,null,null,null,null);
+    public Usuario consultarUsuario(@WebParam(name = "email") String email,
+            @WebParam(name = "senha") String senha) {
+        Usuario usuario = new Usuario(null, null, null, null, email, senha, null, null);
         usuarioRNVal.validarConsultarUsuario(usuario);
         return usuarioBD.consultarUsuario(usuario);
     }
 
     public void alterarUsuario(@WebParam(name = "idUsuario") Integer idUsuario,
-                        @WebParam(name = "nome") String nome,
-                        @WebParam(name = "cpf") String cpf,
-                        @WebParam(name = "rg") String rg,
-                        @WebParam(name = "idTipoAcesso") Integer idTipoAcesso) {
-        Usuario usuario = new Usuario(idUsuario,nome,cpf,rg,idTipoAcesso);
+            @WebParam(name = "nome") String nome,
+            @WebParam(name = "cpf") String cpf,
+            @WebParam(name = "rg") String rg,
+            @WebParam(name = "email") String email,
+            @WebParam(name = "senha") String senha,
+            @WebParam(name = "idTipoAcesso") Integer idTipoAcesso,
+            @WebParam(name = "telefone") Integer telefone) {
+        Usuario usuario = new Usuario(idUsuario, nome, cpf, rg, email, senha, idTipoAcesso, telefone);
         usuarioRNVal.validarAlterarUsuario(usuario);
         usuarioBD.alterarUsuario(usuario);
     }
@@ -55,7 +62,7 @@ public class UsuarioRN {
         System.out.println(pesquisa);
         return usuarioBD.pesquisarUsuario(pesquisa);
     }
-    
+
     public List<Usuario> buscarTodosUsuario() {
         return usuarioBD.buscarTodosUsuario();
     }

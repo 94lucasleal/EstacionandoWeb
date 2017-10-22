@@ -2,24 +2,22 @@ package com.lucas.senac.bd;
 
 import com.lucas.senac.bean.Cartao;
 import com.lucas.senac.infra.CrudBD;
-import java.util.ArrayList;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
-public class CartaoBD extends CrudBD<Cartao>{
-    
+public class CartaoBD extends CrudBD<Cartao> {
+
     public void inserirCartao(Cartao bean) {
         Connection conn = null;
         try {
             conn = abrirConexao();
 
-            PreparedStatement pstm = conn.prepareStatement("INSERT INTO cartao(nometitular, cpftitular, numerocartao, codseguranca) VALUES (?,?,?,?)");
+            PreparedStatement pstm = conn.prepareStatement("INSERT INTO cartao(nometitular, cpftitular, numerocartao) VALUES (?,?,?)");
             pstm.setString(1, bean.getNomeTitular());
             pstm.setString(2, bean.getCpfTitular());
             pstm.setString(3, bean.getNumeroCartao());
-            pstm.setInt(4, bean.getCodSeguranca());
 
             System.out.println("Salvando: " + bean);
             pstm.execute();
@@ -72,7 +70,6 @@ public class CartaoBD extends CrudBD<Cartao>{
                 cartaoRetorno.setNomeTitular(rs.getString("nometitular"));
                 cartaoRetorno.setCpfTitular(rs.getString("cpftitular"));
                 cartaoRetorno.setNumeroCartao(rs.getString("numerocartao"));
-                cartaoRetorno.setCodSeguranca(rs.getInt("codseguranca"));
             }
             System.out.println("Consulta executada com sucesso");
         } catch (Exception e) {
@@ -88,12 +85,11 @@ public class CartaoBD extends CrudBD<Cartao>{
         try {
             conn = abrirConexao();
 
-            PreparedStatement pstm = conn.prepareStatement("UPDATE cartao SET nometitular = ?, cpftitular = ?, numerocartao = ?, codseguranca = ? WHERE idcartao = ?");
+            PreparedStatement pstm = conn.prepareStatement("UPDATE cartao SET nometitular = ?, cpftitular = ?, numerocartao = ? WHERE idcartao = ?");
             pstm.setString(1, bean.getNomeTitular());
             pstm.setString(2, bean.getCpfTitular());
             pstm.setString(3, bean.getNumeroCartao());
-            pstm.setInt(4, bean.getCodSeguranca());
-            pstm.setInt(5, bean.getIdCartao());
+            pstm.setInt(4, bean.getIdCartao());
 
             System.out.println("Alterando: " + bean);
             pstm.execute();
@@ -110,7 +106,7 @@ public class CartaoBD extends CrudBD<Cartao>{
 
     public ArrayList<Cartao> pesquisarCartao(String pesquisa) {
         ArrayList<Cartao> lista = new ArrayList<Cartao>();
-        
+
         Connection conn = null;
         try {
             conn = abrirConexao();
@@ -124,14 +120,13 @@ public class CartaoBD extends CrudBD<Cartao>{
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
                 System.out.println("Registro encontrado");
-                
+
                 Cartao cartao = new Cartao();
                 cartao.setIdCartao(rs.getInt("idcartao"));
                 cartao.setNomeTitular(rs.getString("nometitular"));
                 cartao.setCpfTitular(rs.getString("cpftitular"));
                 cartao.setNumeroCartao(rs.getString("numerocartao"));
-                cartao.setCodSeguranca(rs.getInt("codseguranca"));
-                
+
                 lista.add(cartao);
                 System.out.println(cartao.toString());
             }
@@ -143,10 +138,10 @@ public class CartaoBD extends CrudBD<Cartao>{
         }
         return lista;
     }
-    
+
     public ArrayList<Cartao> buscarTodosCartao() {
         ArrayList<Cartao> lista = new ArrayList<Cartao>();
-        
+
         Connection conn = null;
         try {
             conn = abrirConexao();
@@ -157,14 +152,13 @@ public class CartaoBD extends CrudBD<Cartao>{
             ResultSet rs = pstm.executeQuery();
             while (rs.next()) {
                 System.out.println("Registro encontrado");
-                
+
                 Cartao cartao = new Cartao();
                 cartao.setIdCartao(rs.getInt("idcartao"));
                 cartao.setNomeTitular(rs.getString("nometitular"));
                 cartao.setCpfTitular(rs.getString("cpftitular"));
                 cartao.setNumeroCartao(rs.getString("numerocartao"));
-                cartao.setCodSeguranca(rs.getInt("codseguranca"));
-                
+
                 lista.add(cartao);
                 System.out.println(cartao.toString());
             }
@@ -176,5 +170,5 @@ public class CartaoBD extends CrudBD<Cartao>{
         }
         return lista;
     }
-    
+
 }

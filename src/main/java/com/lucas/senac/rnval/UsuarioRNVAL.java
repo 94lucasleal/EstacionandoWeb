@@ -21,8 +21,11 @@ public class UsuarioRNVAL {
     }
 
     public void validarConsultarUsuario(Usuario bean) {
-        if (bean.getIdUsuario() == 0) {
-            throw new RuntimeException("Campo Código não informado");
+        if (bean.getEmail().isEmpty()) {
+            throw new RuntimeException("Campo email não informado");
+        }
+        if (bean.getSenha().isEmpty()) {
+            throw new RuntimeException("Campo senha não informado");
         }
     }
     

@@ -1,7 +1,7 @@
 package com.lucas.senac.bean;
 
 public class TipoDeAcesso {
-    
+
     private Integer idTipoAcesso;
     private String descricao;
 
@@ -33,5 +33,5 @@ public class TipoDeAcesso {
     public String toString() {
         return "TipoDeAcesso{" + "idTipoAcesso=" + idTipoAcesso + ", descricao=" + descricao + '}';
     }
-    
+
 }
