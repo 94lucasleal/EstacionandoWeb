@@ -33,14 +33,14 @@ public class UsuarioRN {
     }
 
     public void excluirUsuario(@WebParam(name = "idUsuario") Integer idUsuario) {
-        Usuario usuario = new Usuario(idUsuario, null, null, null, null, null, null, 0.0);
+        Usuario usuario = new Usuario(idUsuario, null, null, null, null, null, null, 0);
         usuarioRNVal.validarExcluirUsuario(usuario);
         usuarioBD.excluirUsuario(usuario);
     }
 
     public Usuario consultarUsuario(@WebParam(name = "email") String email,
             @WebParam(name = "senha") String senha) {
-        Usuario usuario = new Usuario(null, null, null, null, email, senha, null, 0.0);
+        Usuario usuario = new Usuario(null, null, null, null, email, senha, null, 0);
         usuarioRNVal.validarConsultarUsuario(usuario);
         return usuarioBD.consultarUsuario(usuario);
     }
