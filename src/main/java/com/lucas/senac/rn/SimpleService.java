@@ -39,7 +39,7 @@ public class SimpleService{
             @WebParam(name = "email") String email,
             @WebParam(name = "senha") String senha,
             @WebParam(name = "idTipoAcesso") Integer idTipoAcesso,
-            @WebParam(name = "telefone") double telefone) {
+            @WebParam(name = "telefone") long telefone) {
 
         Usuario usuario = new Usuario(idUsuario, nome, cpf, rg, email, senha, idTipoAcesso, telefone);
         usuarioRNVal.validarInserirUsuario(usuario);
@@ -66,7 +66,7 @@ public class SimpleService{
             @WebParam(name = "email") String email,
             @WebParam(name = "senha") String senha,
             @WebParam(name = "idTipoAcesso") Integer idTipoAcesso,
-            @WebParam(name = "telefone") double telefone) {
+            @WebParam(name = "telefone") long telefone) {
         
         Usuario usuario = new Usuario(idUsuario, nome, cpf, rg, email, senha, idTipoAcesso, telefone);
         usuarioRNVal.validarAlterarUsuario(usuario);

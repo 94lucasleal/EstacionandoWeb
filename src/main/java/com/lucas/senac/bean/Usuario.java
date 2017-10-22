@@ -9,12 +9,12 @@ public class Usuario {
     private String email;
     private String senha;
     private Integer idTipoAcesso;
-    private double telefone;
+    private long telefone;
 
     public Usuario() {
     }
 
-    public Usuario(Integer idUsuario, String nome, String cpf, String rg, String email, String senha, Integer idTipoAcesso, double telefone) {
+    public Usuario(Integer idUsuario, String nome, String cpf, String rg, String email, String senha, Integer idTipoAcesso, long telefone) {
         this.idUsuario = idUsuario;
         this.nome = nome;
         this.cpf = cpf;
@@ -81,11 +81,11 @@ public class Usuario {
         this.idTipoAcesso = idTipoAcesso;
     }
 
-    public double getTelefone() {
+    public long getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(double telefone) {
+    public void setTelefone(long telefone) {
         this.telefone = telefone;
     }
 
