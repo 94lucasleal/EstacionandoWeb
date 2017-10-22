@@ -21,7 +21,7 @@ public class UsuarioBD extends CrudBD<Usuario>{
             pstm.setString(4, usuario.getEmail());
             pstm.setString(5, usuario.getSenha());
             pstm.setInt(6, usuario.getIdTipoAcesso());
-            pstm.setInt(7, usuario.getTelefone());
+            pstm.setDouble(7, usuario.getTelefone());
 
             System.out.println("Salvando: " + usuario);
             pstm.execute();
@@ -78,7 +78,7 @@ public class UsuarioBD extends CrudBD<Usuario>{
                 usuarioRetorno.setEmail(rs.getString("email"));
                 usuarioRetorno.setSenha(rs.getString("senha"));
                 usuarioRetorno.setIdTipoAcesso(rs.getInt("idtipoacesso"));
-                usuarioRetorno.setTelefone(rs.getInt("telefone"));
+                usuarioRetorno.setTelefone(rs.getDouble("telefone"));
             }
             System.out.println("Consulta executada com sucesso");
         } catch (Exception e) {
@@ -102,7 +102,7 @@ public class UsuarioBD extends CrudBD<Usuario>{
             pstm.setString(4, bean.getEmail());
             pstm.setString(5, bean.getSenha());
             pstm.setInt(6, bean.getIdTipoAcesso());
-            pstm.setInt(7, bean.getTelefone());
+            pstm.setDouble(7, bean.getTelefone());
             pstm.setInt(8, bean.getIdUsuario());
 
             System.out.println("Alterando: " + bean);
@@ -143,7 +143,7 @@ public class UsuarioBD extends CrudBD<Usuario>{
                 usuario.setEmail(rs.getString("email"));
                 usuario.setSenha(rs.getString("senha"));
                 usuario.setIdTipoAcesso(rs.getInt("idtipoacesso"));
-                usuario.setTelefone(rs.getInt("telefone"));
+                usuario.setTelefone(rs.getDouble("telefone"));
                 
                 lista.add(usuario);
                 System.out.println(usuario.toString());
@@ -179,7 +179,7 @@ public class UsuarioBD extends CrudBD<Usuario>{
                 usuario.setEmail(rs.getString("email"));
                 usuario.setSenha(rs.getString("senha"));
                 usuario.setIdTipoAcesso(rs.getInt("idtipoacesso"));
-                usuario.setTelefone(rs.getInt("telefone"));
+                usuario.setTelefone(rs.getDouble("telefone"));
                 
                 lista.add(usuario);
                 System.out.println(usuario.toString());
