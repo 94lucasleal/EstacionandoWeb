@@ -15,7 +15,7 @@ public class CartaoBD extends CrudBD<Cartao>{
         try {
             conn = abrirConexao();
 
-            PreparedStatement pstm = conn.prepareStatement("INSERT INTO cartao(nomeTitular, cpfTitular, numeroCartao, codSeguranca) VALUES (?,?,?,?)");
+            PreparedStatement pstm = conn.prepareStatement("INSERT INTO cartao(nometitular, cpftitular, numerocartao, codseguranca) VALUES (?,?,?,?)");
             pstm.setString(1, bean.getNomeTitular());
             pstm.setString(2, bean.getCpfTitular());
             pstm.setString(3, bean.getNumeroCartao());
@@ -38,7 +38,7 @@ public class CartaoBD extends CrudBD<Cartao>{
         try {
             conn = abrirConexao();
 
-            PreparedStatement pstm = conn.prepareStatement("DELETE FROM cartao WHERE idCartao=?");
+            PreparedStatement pstm = conn.prepareStatement("DELETE FROM cartao WHERE idcartao=?");
             pstm.setInt(1, bean.getIdCartao());
 
             System.out.println("Excluindo: " + bean);
@@ -60,7 +60,7 @@ public class CartaoBD extends CrudBD<Cartao>{
         try {
             conn = abrirConexao();
 
-            PreparedStatement pstm = conn.prepareStatement("SELECT * FROM cartao WHERE idCartao=?");
+            PreparedStatement pstm = conn.prepareStatement("SELECT * FROM cartao WHERE idcartao=?");
             pstm.setInt(1, bean.getIdCartao());
 
             System.out.println("Consultando: " + bean);
@@ -68,11 +68,11 @@ public class CartaoBD extends CrudBD<Cartao>{
             if (rs.next()) {
                 System.out.println("Registro encontrado");
                 cartaoRetorno = new Cartao();
-                cartaoRetorno.setIdCartao(rs.getInt("idCartao"));
-                cartaoRetorno.setNomeTitular(rs.getString("nomeTitular"));
-                cartaoRetorno.setCpfTitular(rs.getString("cpfTitular"));
-                cartaoRetorno.setNumeroCartao(rs.getString("numeroCartao"));
-                cartaoRetorno.setCodSeguranca(rs.getInt("codSeguranca"));
+                cartaoRetorno.setIdCartao(rs.getInt("idcartao"));
+                cartaoRetorno.setNomeTitular(rs.getString("nometitular"));
+                cartaoRetorno.setCpfTitular(rs.getString("cpftitular"));
+                cartaoRetorno.setNumeroCartao(rs.getString("numerocartao"));
+                cartaoRetorno.setCodSeguranca(rs.getInt("codseguranca"));
             }
             System.out.println("Consulta executada com sucesso");
         } catch (Exception e) {
@@ -88,7 +88,7 @@ public class CartaoBD extends CrudBD<Cartao>{
         try {
             conn = abrirConexao();
 
-            PreparedStatement pstm = conn.prepareStatement("UPDATE cartao SET nomeTitular = ?, cpfTitular = ?, numeroCartao = ?, codSeguranca = ? WHERE idCartao = ?");
+            PreparedStatement pstm = conn.prepareStatement("UPDATE cartao SET nometitular = ?, cpftitular = ?, numerocartao = ?, codseguranca = ? WHERE idcartao = ?");
             pstm.setString(1, bean.getNomeTitular());
             pstm.setString(2, bean.getCpfTitular());
             pstm.setString(3, bean.getNumeroCartao());
@@ -115,7 +115,7 @@ public class CartaoBD extends CrudBD<Cartao>{
         try {
             conn = abrirConexao();
 
-            PreparedStatement pstm = conn.prepareStatement("SELECT * FROM cartao WHERE nomeTitular like ? OR cpfTitular like ? OR numeroCartao like ?");
+            PreparedStatement pstm = conn.prepareStatement("SELECT * FROM cartao WHERE nometitular like ? OR cpftitular like ? OR numerocartao like ?");
             pstm.setString(1, "%" + pesquisa + "%");
             pstm.setString(2, "%" + pesquisa + "%");
             pstm.setString(3, "%" + pesquisa + "%");
@@ -126,11 +126,11 @@ public class CartaoBD extends CrudBD<Cartao>{
                 System.out.println("Registro encontrado");
                 
                 Cartao cartao = new Cartao();
-                cartao.setIdCartao(rs.getInt("idCartao"));
-                cartao.setNomeTitular(rs.getString("nomeTitular"));
-                cartao.setCpfTitular(rs.getString("cpfTitular"));
-                cartao.setNumeroCartao(rs.getString("numeroCartao"));
-                cartao.setCodSeguranca(rs.getInt("codSeguranca"));
+                cartao.setIdCartao(rs.getInt("idcartao"));
+                cartao.setNomeTitular(rs.getString("nometitular"));
+                cartao.setCpfTitular(rs.getString("cpftitular"));
+                cartao.setNumeroCartao(rs.getString("numerocartao"));
+                cartao.setCodSeguranca(rs.getInt("codseguranca"));
                 
                 lista.add(cartao);
                 System.out.println(cartao.toString());
@@ -159,11 +159,11 @@ public class CartaoBD extends CrudBD<Cartao>{
                 System.out.println("Registro encontrado");
                 
                 Cartao cartao = new Cartao();
-                cartao.setIdCartao(rs.getInt("idCartao"));
-                cartao.setNomeTitular(rs.getString("nomeTitular"));
-                cartao.setCpfTitular(rs.getString("cpfTitular"));
-                cartao.setNumeroCartao(rs.getString("numeroCartao"));
-                cartao.setCodSeguranca(rs.getInt("codSeguranca"));
+                cartao.setIdCartao(rs.getInt("idcartao"));
+                cartao.setNomeTitular(rs.getString("nometitular"));
+                cartao.setCpfTitular(rs.getString("cpftitular"));
+                cartao.setNumeroCartao(rs.getString("numerocartao"));
+                cartao.setCodSeguranca(rs.getInt("codseguranca"));
                 
                 lista.add(cartao);
                 System.out.println(cartao.toString());

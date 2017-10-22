@@ -14,7 +14,7 @@ public class UsuarioBD extends CrudBD<Usuario>{
         try {
             conn = abrirConexao();
 
-            PreparedStatement pstm = conn.prepareStatement("INSERT INTO usuario(nome, cpf, rg, idTipoAcesso) VALUES (?,?,?,?)");
+            PreparedStatement pstm = conn.prepareStatement("INSERT INTO usuario(nome, cpf, rg, idyipoacesso) VALUES (?,?,?,?)");
             pstm.setString(1, usuario.getNome());
             pstm.setString(2, usuario.getCpf());
             pstm.setString(3, usuario.getRg());
@@ -37,7 +37,7 @@ public class UsuarioBD extends CrudBD<Usuario>{
         try {
             conn = abrirConexao();
 
-            PreparedStatement pstm = conn.prepareStatement("DELETE FROM usuario WHERE idUsuario=?");
+            PreparedStatement pstm = conn.prepareStatement("DELETE FROM usuario WHERE idusuario=?");
             pstm.setInt(1, bean.getIdUsuario());
 
             System.out.println("Excluindo: " + bean);
@@ -59,7 +59,7 @@ public class UsuarioBD extends CrudBD<Usuario>{
         try {
             conn = abrirConexao();
 
-            PreparedStatement pstm = conn.prepareStatement("SELECT * FROM usuario WHERE idUsuario=?");
+            PreparedStatement pstm = conn.prepareStatement("SELECT * FROM usuario WHERE idusuario=?");
             pstm.setInt(1, bean.getIdUsuario());
 
             System.out.println("Consultando: " + bean);
@@ -67,11 +67,11 @@ public class UsuarioBD extends CrudBD<Usuario>{
             if (rs.next()) {
                 System.out.println("Registro encontrado");
                 usuarioRetorno = new Usuario();
-                usuarioRetorno.setIdUsuario(rs.getInt("idUsuario"));
+                usuarioRetorno.setIdUsuario(rs.getInt("idusuario"));
                 usuarioRetorno.setNome(rs.getString("nome"));
                 usuarioRetorno.setCpf(rs.getString("cpf"));
                 usuarioRetorno.setRg(rs.getString("rg"));
-                usuarioRetorno.setIdTipoAcesso(rs.getInt("idTipoAcesso"));
+                usuarioRetorno.setIdTipoAcesso(rs.getInt("idtipoacesso"));
             }
             System.out.println("Consulta executada com sucesso");
         } catch (Exception e) {
@@ -88,7 +88,7 @@ public class UsuarioBD extends CrudBD<Usuario>{
         try {
             conn = abrirConexao();
 
-            PreparedStatement pstm = conn.prepareStatement("UPDATE usuario SET nome = ?, cpf = ?, rg = ?, idTipoAcesso = ? WHERE idUsuario = ?");
+            PreparedStatement pstm = conn.prepareStatement("UPDATE usuario SET nome = ?, cpf = ?, rg = ?, idtipoacesso = ? WHERE idusuario = ?");
             pstm.setString(1, bean.getNome());
             pstm.setString(2, bean.getCpf());
             pstm.setString(3, bean.getRg());
@@ -126,11 +126,11 @@ public class UsuarioBD extends CrudBD<Usuario>{
                 System.out.println("Registro encontrado");
                 
                 Usuario usuario = new Usuario();
-                usuario.setIdUsuario(rs.getInt("idUsuario"));
+                usuario.setIdUsuario(rs.getInt("idusuario"));
                 usuario.setNome(rs.getString("nome"));
                 usuario.setCpf(rs.getString("cpf"));
                 usuario.setRg(rs.getString("rg"));
-                usuario.setIdTipoAcesso(rs.getInt("idTipoAcesso"));
+                usuario.setIdTipoAcesso(rs.getInt("idtipoacesso"));
                 
                 lista.add(usuario);
                 System.out.println(usuario.toString());
@@ -159,11 +159,11 @@ public class UsuarioBD extends CrudBD<Usuario>{
                 System.out.println("Registro encontrado");
                 
                 Usuario usuario = new Usuario();
-                usuario.setIdUsuario(rs.getInt("idUsuario"));
+                usuario.setIdUsuario(rs.getInt("idusuario"));
                 usuario.setNome(rs.getString("nome"));
                 usuario.setCpf(rs.getString("cpf"));
                 usuario.setRg(rs.getString("rg"));
-                usuario.setIdTipoAcesso(rs.getInt("idTipoAcesso"));
+                usuario.setIdTipoAcesso(rs.getInt("idtipoacesso"));
                 
                 lista.add(usuario);
                 System.out.println(usuario.toString());

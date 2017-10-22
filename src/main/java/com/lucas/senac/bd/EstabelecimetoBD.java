@@ -14,8 +14,8 @@ public class EstabelecimetoBD extends CrudBD<Estabelecimento>{
         try {
             conn = abrirConexao();
 
-            PreparedStatement pstm = conn.prepareStatement("INSERT INTO estabelecimento (idEstabelecimento, idUsuario, "
-                                                         + "idTipoEstabelecimento, razaoSocial, cnpj, estado, bairro, "
+            PreparedStatement pstm = conn.prepareStatement("INSERT INTO estabelecimento (idestabelecimento, idusuario, "
+                                                         + "idtipoestabelecimento, razaoSocial, cnpj, estado, bairro, "
                                                          + "logradouro, cep, numero, referencia, latitude, longitude) "
                                                          + "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)");
             pstm.setInt(1, bean.getIdUsuario());
@@ -49,7 +49,7 @@ public class EstabelecimetoBD extends CrudBD<Estabelecimento>{
         try {
             conn = abrirConexao();
 
-            PreparedStatement pstm = conn.prepareStatement("DELETE FROM estabelecimento WHERE idEstabelecimento=?");
+            PreparedStatement pstm = conn.prepareStatement("DELETE FROM estabelecimento WHERE idestabelecimento=?");
             pstm.setInt(1, bean.getIdEstacionamento());
 
             System.out.println("Excluindo: " + bean);
@@ -71,7 +71,7 @@ public class EstabelecimetoBD extends CrudBD<Estabelecimento>{
         try {
             conn = abrirConexao();
 
-            PreparedStatement pstm = conn.prepareStatement("SELECT * FROM estabelecimento WHERE idEstabelecimento=?");
+            PreparedStatement pstm = conn.prepareStatement("SELECT * FROM estabelecimento WHERE idestabelecimento=?");
             pstm.setInt(1, bean.getIdEstacionamento());
 
             System.out.println("Consultando: " + bean);
@@ -79,9 +79,9 @@ public class EstabelecimetoBD extends CrudBD<Estabelecimento>{
             if (rs.next()) {
                 System.out.println("Registro encontrado");
                 estabelecimentoRetorno = new Estabelecimento();
-                estabelecimentoRetorno.setIdEstacionamento(rs.getInt("idEstabelecimento"));
-                estabelecimentoRetorno.setIdUsuario(rs.getInt("idUsuario"));
-                estabelecimentoRetorno.setIdTipoEstabelecimento(rs.getInt("idTipoEstabelecimento"));
+                estabelecimentoRetorno.setIdEstacionamento(rs.getInt("idestabelecimento"));
+                estabelecimentoRetorno.setIdUsuario(rs.getInt("idusuario"));
+                estabelecimentoRetorno.setIdTipoEstabelecimento(rs.getInt("idtipoestabelecimento"));
                 estabelecimentoRetorno.setRazaoSocial(rs.getString("razaoSocial"));
                 estabelecimentoRetorno.setCnpj(rs.getString("cnpj"));
                 estabelecimentoRetorno.setEstado(rs.getString("estado"));
@@ -108,10 +108,10 @@ public class EstabelecimetoBD extends CrudBD<Estabelecimento>{
         try {
             conn = abrirConexao();
 
-            PreparedStatement pstm = conn.prepareStatement("UPDATE estabelecimento SET idUsuario = ?, "
-                                                         + "idTipoEstabelecimento = ?, razaoSocial = ?, cnpj = ?, estado = ?, bairro = ?, "
+            PreparedStatement pstm = conn.prepareStatement("UPDATE estabelecimento SET idusuario = ?, "
+                                                         + "idtipoestabelecimento = ?, razaoSocial = ?, cnpj = ?, estado = ?, bairro = ?, "
                                                          + "logradouro = ?, cep, numero = ?, referencia = ?, latitude = ?, longitude = ?) "
-                                                         + "WHERE idEstacionamento = ?");
+                                                         + "WHERE idestacionamento = ?");
             pstm.setInt(1, bean.getIdUsuario());
             pstm.setInt(2, bean.getIdTipoEstabelecimento());
             pstm.setString(3, bean.getRazaoSocial());
@@ -157,9 +157,9 @@ public class EstabelecimetoBD extends CrudBD<Estabelecimento>{
                 System.out.println("Registro encontrado");
                 
                 Estabelecimento estabelecimento = new Estabelecimento();
-                estabelecimento.setIdEstacionamento(rs.getInt("idEstabelecimento"));
-                estabelecimento.setIdUsuario(rs.getInt("idUsuario"));
-                estabelecimento.setIdTipoEstabelecimento(rs.getInt("idTipoEstabelecimento"));
+                estabelecimento.setIdEstacionamento(rs.getInt("idestabelecimento"));
+                estabelecimento.setIdUsuario(rs.getInt("idusuario"));
+                estabelecimento.setIdTipoEstabelecimento(rs.getInt("idtipoestabelecimento"));
                 estabelecimento.setRazaoSocial(rs.getString("razaoSocial"));
                 estabelecimento.setCnpj(rs.getString("cnpj"));
                 estabelecimento.setEstado(rs.getString("estado"));
@@ -199,9 +199,9 @@ public class EstabelecimetoBD extends CrudBD<Estabelecimento>{
                 System.out.println("Registro encontrado");
                 
                 Estabelecimento estabelecimento = new Estabelecimento();
-                estabelecimento.setIdEstacionamento(rs.getInt("idEstabelecimento"));
-                estabelecimento.setIdUsuario(rs.getInt("idUsuario"));
-                estabelecimento.setIdTipoEstabelecimento(rs.getInt("idTipoEstabelecimento"));
+                estabelecimento.setIdEstacionamento(rs.getInt("idestabelecimento"));
+                estabelecimento.setIdUsuario(rs.getInt("idusuario"));
+                estabelecimento.setIdTipoEstabelecimento(rs.getInt("idtipoestabelecimento"));
                 estabelecimento.setRazaoSocial(rs.getString("razaoSocial"));
                 estabelecimento.setCnpj(rs.getString("cnpj"));
                 estabelecimento.setEstado(rs.getString("estado"));
