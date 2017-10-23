@@ -18,13 +18,12 @@ public class EstabalecimentoRNVAL {
     }
 
     public void validarConsultarEstabelecimento(Estabelecimento bean) {
-        if (bean.getIdEstacionamento()== 0) {
-            throw new RuntimeException("Campo Código não informado");
-        }
     }
     
     public void validarAlterarEstabelecimento(Estabelecimento bean) {
-        validarConsultarEstabelecimento(bean);
+        if (bean.getIdEstacionamento()== 0) {
+            throw new RuntimeException("Campo Código não informado");
+        }
     }
     
     
