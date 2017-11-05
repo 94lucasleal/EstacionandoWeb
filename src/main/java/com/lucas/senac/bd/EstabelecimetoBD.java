@@ -125,7 +125,7 @@ public class EstabelecimetoBD extends CrudBD<Estabelecimento> {
                     + "idtipoestabelecimento = ?, razaoSocial = ?, cnpj = ?, estado = ?, municipio = ?, bairro = ?, "
                     + "logradouro = ?, cep = ?, numero = ?, referencia = ?, latitude = ?, longitude = ?,"
                     + "valormeiahora = ?, valorhora = ?, valordiaria = ?, valormensal = ?, valoradicional = ?, imagem = ? "
-                    + "WHERE idestacionamento = ?");
+                    + "WHERE idestabelecimento = ?");
             pstm.setInt(1, bean.getIdUsuario());
             pstm.setInt(2, bean.getIdTipoEstabelecimento());
             pstm.setString(3, bean.getRazaoSocial());
