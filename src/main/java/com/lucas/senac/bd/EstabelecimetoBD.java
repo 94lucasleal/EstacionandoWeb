@@ -217,7 +217,7 @@ public class EstabelecimetoBD extends CrudBD<Estabelecimento> {
         try {
             conn = abrirConexao();
 
-            PreparedStatement pstm = conn.prepareStatement("SELECT * FROM estabelecimento");
+            PreparedStatement pstm = conn.prepareStatement("select * from estabelecimento order by idestabelecimento");
 
             System.out.println("Pesquisando: ");
             ResultSet rs = pstm.executeQuery();
