@@ -31,16 +31,6 @@
             <artifactId>grizzly-servlet-webserver</artifactId>
             <version>1.9.18-i</version>
         </dependency>
-        <dependency>
-            <groupId>com.sun.jersey.contribs</groupId>
-            <artifactId>jersey-multipart</artifactId>
-            <version>1.9.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.sun.jersey</groupId>
-            <artifactId>jersey-json</artifactId>
-            <version>1.8</version>
-        </dependency>
     </dependencies>
     <build>
         <plugins>

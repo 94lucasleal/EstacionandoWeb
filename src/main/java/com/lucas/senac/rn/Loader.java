@@ -13,6 +13,7 @@ public class Loader {
 
     public static void main(String[] args) throws MalformedURLException, IOException {
         String port = System.getenv("PORT");
+        if (port == null) port = "9998";
         /*String port = "9998";
         String host = "http://0.0.0.0:";
         String uri = "/service";
