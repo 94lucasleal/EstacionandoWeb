@@ -1,5 +1,6 @@
 package com.lucas.senac.bean;
 
+
 public class Usuario {
 
     private Integer idUsuario;

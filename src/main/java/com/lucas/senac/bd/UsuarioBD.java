@@ -40,7 +40,7 @@ public class UsuarioBD extends CrudBD<Usuario>{
         try {
             conn = abrirConexao();
 
-            PreparedStatement pstm = conn.prepareStatement("DELETE FROM usuario WHERE idusuario=?");
+            PreparedStatement pstm = conn.prepareStatement("DELETE FROM usuario WHERE idusuario = ?");
             pstm.setInt(1, bean.getIdUsuario());
 
             System.out.println("Excluindo: " + bean);
@@ -125,7 +125,7 @@ public class UsuarioBD extends CrudBD<Usuario>{
         try {
             conn = abrirConexao();
 
-            PreparedStatement pstm = conn.prepareStatement("SELECT * FROM usuario WHERE nome like ? OR cpf like ? OR rg like ?");
+            PreparedStatement pstm = conn.prepareStatement("SELECT * FROM usuario WHERE nome like ? OR cpf like ? OR rg like ? order by idusuario");
             pstm.setString(1, "%" + pesquisa + "%");
             pstm.setString(2, "%" + pesquisa + "%");
             pstm.setString(3, "%" + pesquisa + "%");
@@ -164,7 +164,7 @@ public class UsuarioBD extends CrudBD<Usuario>{
         try {
             conn = abrirConexao();
 
-            PreparedStatement pstm = conn.prepareStatement("SELECT * FROM usuario");
+            PreparedStatement pstm = conn.prepareStatement("SELECT * FROM usuario order by idusuario");
 
             System.out.println("Pesquisando: ");
             ResultSet rs = pstm.executeQuery();

@@ -1,70 +1,79 @@
 package com.lucas.senac.rn;
 
+import com.google.gson.Gson;
 import com.lucas.senac.bd.UsuarioBD;
 import com.lucas.senac.bean.Usuario;
 import com.lucas.senac.rnval.UsuarioRNVAL;
 import java.util.List;
 import javax.jws.WebParam;
-import javax.jws.WebService;
+import javax.ws.rs.*;
 
-@WebService(endpointInterface = "com.lucas.senac.rn.UsuarioRN", serviceName = "UsuarioRN")
+
+@Path("usuario")
 public class UsuarioRN {
 
     private final UsuarioBD usuarioBD;
     private final UsuarioRNVAL usuarioRNVal;
+    private final Gson gson;
 
     public UsuarioRN() {
         usuarioBD = new UsuarioBD();
         usuarioRNVal = new UsuarioRNVAL();
+        gson = new Gson();
     }
 
-    public void inserirUsuario(@WebParam(name = "idUsuario") Integer idUsuario,
-            @WebParam(name = "nome") String nome,
-            @WebParam(name = "cpf") String cpf,
-            @WebParam(name = "rg") String rg,
-            @WebParam(name = "email") String email,
-            @WebParam(name = "senha") String senha,
-            @WebParam(name = "idTipoAcesso") Integer idTipoAcesso,
-            @WebParam(name = "telefone") long telefone) {
-
-        Usuario usuario = new Usuario(idUsuario, nome, cpf, rg, email, senha, idTipoAcesso, telefone);
+    @POST
+    @Consumes({"application/json"})
+    @Path("/inserirUsuario")
+    public void inserirUsuario(String content) {
+        Usuario usuario = (Usuario) gson.fromJson(content, Usuario.class);
         usuarioRNVal.validarInserirUsuario(usuario);
         usuarioBD.inserirUsuario(usuario);
     }
 
-    public void excluirUsuario(@WebParam(name = "idUsuario") Integer idUsuario) {
-        Usuario usuario = new Usuario(idUsuario, null, null, null, null, null, null, 0);
+    @DELETE
+    @Path("/excluirUsuario/{idusuario}")
+    public void excluirUsuario(@PathParam("idusuario") String idUsuario) {
+        Usuario usuario = new Usuario(Integer.parseInt(idUsuario), null, null, null, null, null, null, 0);
         usuarioRNVal.validarExcluirUsuario(usuario);
         usuarioBD.excluirUsuario(usuario);
     }
 
-    public Usuario consultarUsuario(@WebParam(name = "email") String email,
-            @WebParam(name = "senha") String senha) {
+    @GET
+    @Produces("application/json")
+    @Path("/consultarUsuario/{email}/{senha}")
+    public String consultarUsuario(@PathParam("email") String email,
+            @PathParam("senha") String senha) {
         Usuario usuario = new Usuario(null, null, null, null, email, senha, null, 0);
         usuarioRNVal.validarConsultarUsuario(usuario);
-        return usuarioBD.consultarUsuario(usuario);
+        return gson.toJson(usuarioBD.consultarUsuario(usuario));
     }
 
-    public void alterarUsuario(@WebParam(name = "idUsuario") Integer idUsuario,
-            @WebParam(name = "nome") String nome,
-            @WebParam(name = "cpf") String cpf,
-            @WebParam(name = "rg") String rg,
-            @WebParam(name = "email") String email,
-            @WebParam(name = "senha") String senha,
-            @WebParam(name = "idTipoAcesso") Integer idTipoAcesso,
-            @WebParam(name = "telefone") long telefone) {
-        Usuario usuario = new Usuario(idUsuario, nome, cpf, rg, email, senha, idTipoAcesso, telefone);
+    @PUT
+    @Consumes({"application/json"})
+    @Path("/alterarUsuario")
+    public void alterarUsuario(String content) {
+        Usuario usuario = (Usuario) gson.fromJson(content, Usuario.class);
         usuarioRNVal.validarAlterarUsuario(usuario);
         usuarioBD.alterarUsuario(usuario);
     }
-
-    public List<Usuario> pesquisarUsuario(@WebParam(name = "pesquisa") String pesquisa) {
+    
+    @GET
+    @Produces("application/json")
+    @Path("/pesquisarUsuario/{pesquisa}")
+    public String pesquisarUsuario(@PathParam("pesquisa") String pesquisa) {
         System.out.println(pesquisa);
-        return usuarioBD.pesquisarUsuario(pesquisa);
+        return gson.toJson(usuarioBD.pesquisarUsuario(pesquisa));
     }
 
-    public List<Usuario> buscarTodosUsuario() {
-        return usuarioBD.buscarTodosUsuario();
+    @GET
+    @Produces("application/json")
+    @Path("/buscarTodosUsuario")
+    public String buscarTodosUsuario() {
+        /*Usuario usuario = new Usuario(27, "aa", "aa", "aa", "aa", "aa", 1, 1111);
+        String json = gson.toJson(usuario);
+        inserirUsuario(json);*/
+        return gson.toJson(usuarioBD.buscarTodosUsuario());
     }
 
 }

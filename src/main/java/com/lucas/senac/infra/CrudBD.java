@@ -14,7 +14,7 @@ public abstract class CrudBD<T> {
 
     String logger;
 
-    protected final String BD_STRING_CONEXAO = "jdbc:postgresql://ec2-23-21-184-113.compute-1.amazonaws.com:5432/d62aoe0nomihrd";
+    protected final String BD_STRING_CONEXAO = "jdbc:postgresql://ec2-23-21-184-113.compute-1.amazonaws.com:5432/d62aoe0nomihrd?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";
     protected final String BD_USERNAME = "ggwdnhloaccvrd";
     protected final String BD_PASSWORD = "80003be419ede4c9ad33afc1d680d720493bf756508b5b8d63bc9eaab5505ef1";
 

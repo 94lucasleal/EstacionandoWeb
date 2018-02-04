@@ -17,7 +17,9 @@ public class UsuarioRNVAL {
     }
 
     public void validarExcluirUsuario(Usuario bean) {
-        validarConsultarUsuario(bean);
+        if (bean.getIdUsuario() < 0) {
+            throw new RuntimeException("Campo IdUsuario não informado");
+        }
     }
 
     public void validarConsultarUsuario(Usuario bean) {
