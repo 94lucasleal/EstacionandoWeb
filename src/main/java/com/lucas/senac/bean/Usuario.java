@@ -2,7 +2,7 @@ package com.lucas.senac.bean;
 
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement
+@XmlRootElement(name = "Usuario")
 public class Usuario {
 
     private Integer idUsuario;

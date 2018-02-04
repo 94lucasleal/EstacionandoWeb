@@ -23,7 +23,7 @@ public class UsuarioRN {
     }
 
     @POST
-    @Consumes({"application/xml"})
+    @Consumes({"application/json"})
     @Path("/inserirUsuario")
     public void inserirUsuario(String content) {
         Usuario usuario = (Usuario) gson.fromJson(content, Usuario.class);
@@ -40,7 +40,7 @@ public class UsuarioRN {
     }
 
     @GET
-    @Produces("application/xml")
+    @Produces("application/json")
     @Path("/consultarUsuario/{email}/{senha}")
     public String consultarUsuario(@PathParam("email") String email,
             @PathParam("senha") String senha) {
@@ -50,30 +50,30 @@ public class UsuarioRN {
     }
 
     @PUT
-    @Consumes({"application/xml"})
+    @Consumes({"application/json"})
     @Path("/alterarUsuario")
     public void alterarUsuario(String content) {
         Usuario usuario = (Usuario) gson.fromJson(content, Usuario.class);
         usuarioRNVal.validarAlterarUsuario(usuario);
         usuarioBD.alterarUsuario(usuario);
     }
-    
+    /*
     @GET
-    @Produces("application/xml")
+    @Produces("application/json")
     @Path("/pesquisarUsuario/{pesquisa}")
     public String pesquisarUsuario(@PathParam("pesquisa") String pesquisa) {
         System.out.println(pesquisa);
         return gson.toJson(usuarioBD.pesquisarUsuario(pesquisa));
     }
-
+    
     @GET
-    @Produces("application/xml")
+    @Produces("application/json")
     @Path("/buscarTodosUsuario")
     public String buscarTodosUsuario() {
         /*Usuario usuario = new Usuario(27, "aa", "aa", "aa", "aa", "aa", 1, 1111);
         String json = gson.toJson(usuario);
-        inserirUsuario(json);*/
+        inserirUsuario(json);
         return gson.toJson(usuarioBD.buscarTodosUsuario());
-    }
+    }*/
 
 }
