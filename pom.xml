@@ -42,63 +42,6 @@
             <version>1.9.18-i</version>
         </dependency>
         <dependency>
-            <groupId>org.glassfish.jersey.examples</groupId>
-            <artifactId>https-clientserver-grizzly</artifactId>
-            <version>2.22.2</version>
-            <type>zip</type>
-            <classifier>project-src</classifier>
-            <exclusions>
-                <exclusion>
-                    <groupId>javax.validation</groupId>
-                    <artifactId>validation-api</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-api</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.glassfish.hk2</groupId>
-                    <artifactId>osgi-resource-locator</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.glassfish.jersey.core</groupId>
-                    <artifactId>jersey-server</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.glassfish.jersey.bundles.repackaged</groupId>
-                    <artifactId>jersey-guava</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.glassfish.jersey.connectors</groupId>
-                    <artifactId>jersey-grizzly-connector</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.glassfish.jersey.containers</groupId>
-                    <artifactId>jersey-container-servlet-core</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.glassfish.jersey.containers</groupId>
-                    <artifactId>jersey-container-servlet</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.glassfish.jersey.containers</groupId>
-                    <artifactId>jersey-container-grizzly2-servlet</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.glassfish.jersey.core</groupId>
-                    <artifactId>jersey-common</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.glassfish.jersey.core</groupId>
-                    <artifactId>jersey-client</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>javax.annotation</groupId>
-                    <artifactId>javax.annotation-api</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-server</artifactId>
             <version>9.4.7.v20170914</version>
