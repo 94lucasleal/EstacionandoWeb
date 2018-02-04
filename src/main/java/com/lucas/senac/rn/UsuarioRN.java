@@ -23,7 +23,7 @@ public class UsuarioRN {
     }
 
     @POST
-    @Consumes({"application/json"})
+    @Consumes({"application/xml"})
     @Path("/inserirUsuario")
     public void inserirUsuario(String content) {
         Usuario usuario = (Usuario) gson.fromJson(content, Usuario.class);
@@ -40,7 +40,7 @@ public class UsuarioRN {
     }
 
     @GET
-    @Produces("application/json")
+    @Produces("application/xml")
     @Path("/consultarUsuario/{email}/{senha}")
     public String consultarUsuario(@PathParam("email") String email,
             @PathParam("senha") String senha) {
@@ -50,7 +50,7 @@ public class UsuarioRN {
     }
 
     @PUT
-    @Consumes({"application/json"})
+    @Consumes({"application/xml"})
     @Path("/alterarUsuario")
     public void alterarUsuario(String content) {
         Usuario usuario = (Usuario) gson.fromJson(content, Usuario.class);
@@ -59,7 +59,7 @@ public class UsuarioRN {
     }
     
     @GET
-    @Produces("application/json")
+    @Produces("application/xml")
     @Path("/pesquisarUsuario/{pesquisa}")
     public String pesquisarUsuario(@PathParam("pesquisa") String pesquisa) {
         System.out.println(pesquisa);
@@ -67,7 +67,7 @@ public class UsuarioRN {
     }
 
     @GET
-    @Produces("application/json")
+    @Produces("application/xml")
     @Path("/buscarTodosUsuario")
     public String buscarTodosUsuario() {
         /*Usuario usuario = new Usuario(27, "aa", "aa", "aa", "aa", "aa", 1, 1111);

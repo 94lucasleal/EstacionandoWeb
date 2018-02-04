@@ -10,8 +10,6 @@ import java.util.Map;
 import javax.ws.rs.core.UriBuilder;
 import javax.xml.ws.Endpoint;
 import javax.xml.ws.WebServiceFeature;
-import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.webapp.WebAppContext;
 
 public class Loader {
 
