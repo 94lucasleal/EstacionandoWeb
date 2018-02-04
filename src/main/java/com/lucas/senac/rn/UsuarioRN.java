@@ -7,6 +7,8 @@ import com.lucas.senac.rnval.UsuarioRNVAL;
 import java.util.List;
 import javax.jws.WebParam;
 import javax.ws.rs.*;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.UriInfo;
 
 
 @Path("usuario")
@@ -15,7 +17,11 @@ public class UsuarioRN {
     private final UsuarioBD usuarioBD;
     private final UsuarioRNVAL usuarioRNVal;
     private final Gson gson;
-
+    
+    @Context
+    private UriInfo context;
+    
+    
     public UsuarioRN() {
         usuarioBD = new UsuarioBD();
         usuarioRNVal = new UsuarioRNVAL();
