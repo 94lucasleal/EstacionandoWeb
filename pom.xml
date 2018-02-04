@@ -21,11 +21,6 @@
     <artifactId>jersey-json</artifactId>
     <version>1.19.1</version>
 </dependency>
-<dependency>
-   <groupId>com.owlike</groupId>
-   <artifactId>genson</artifactId>
-   <version>0.99</version>
-</dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
@@ -64,7 +59,11 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
+        <dependency>
+            <groupId>com.sun.jersey</groupId>
+            <artifactId>jersey-bundle</artifactId>
+            <version>1.8-ea03</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
