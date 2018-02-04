@@ -26,7 +26,7 @@ public class Loader {
         initParams.put("com.sun.jersey.config.property.packages","com.lucas.senac.rn");
         
         System.out.println("Iniciando o grizzly...");
-        SelectorThread threadSelector = GrizzlyWebContainerFactory.create(baseUri, initParams);
+        SelectorThread threadSelector = GrizzlyWebContainerFactory.create(baseUri.toLowerCase(), initParams);
         System.out.println(String.format("Serviço iniciado acesse: %sapplication.wadl.",baseUri, baseUri));
     }
 }
