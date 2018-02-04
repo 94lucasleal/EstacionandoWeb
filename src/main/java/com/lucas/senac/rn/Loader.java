@@ -20,7 +20,7 @@ public class Loader {
         Endpoint.publish(host + port + uri,service);*/
         
         //final String baseUri = "http://localhost:"+(System.getenv("PORT")!=null?System.getenv("PORT"):"9998")+"/";
-        final String baseUri = "http://0.0.0.0:"+(System.getenv("PORT")!=null?System.getenv("PORT"):"9998")+"/";
+        final String baseUri = "http://0.0.0.0:"+port+"/";
         final Map<String, String> initParams = new HashMap<String, String>();
         initParams.put("com.sun.jersey.config.property.packages","com.lucas.senac.rn");
         
