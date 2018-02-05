@@ -29,7 +29,7 @@ public class Loader {
         //final String baseUri = String.valueOf(BASE_URI);
         final Map<String, String> initParams = new HashMap<String, String>();
         initParams.put("com.sun.jersey.config.property.packages","com.lucas.senac.rn");
-        initParams.put("com.sun.jersey.api.json.POJOMappingFeature", "true");
+        //initParams.put("com.sun.jersey.api.json.POJOMappingFeature", "true");
         
         System.out.println("Iniciando o grizzly...");
         SelectorThread threadSelector = GrizzlyWebContainerFactory.create(baseUri, initParams);
