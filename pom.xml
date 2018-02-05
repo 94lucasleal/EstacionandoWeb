@@ -40,24 +40,19 @@
     <build>
         <plugins>
             <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <configuration>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                    <archive>
-                        <manifest>
-                            <mainClass>com.lucas.senac.rn.Loader</mainClass>
-                        </manifest>
-                    </archive>
-                            <assembleDirectory>target</assembleDirectory>
-                            <programs>
-                                <program>
-                                    <mainClass>com.lucas.senac.rn.Loader</mainClass>
-                                    <name>EstacionandoWeb</name>
-                                </program>
-                            </programs>
-                </configuration>
+              <!-- Build an executable JAR -->
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-jar-plugin</artifactId>
+              <version>3.0.2</version>
+              <configuration>
+                <archive>
+                  <manifest>
+                    <addClasspath>true</addClasspath>
+                    <classpathPrefix>lib/</classpathPrefix>
+                    <mainClass>com.lucas.senac.rn.Loader</mainClass>
+                  </manifest>
+                </archive>
+              </configuration>
             </plugin>
         </plugins>
     </build>
