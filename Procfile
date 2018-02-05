@@ -1,1 +1,1 @@
-web: java -jar EstacionandoWeb/target/EstacionandoWeb-1.0-SNAPSHOT.jar
+web: java -jar target\EstacionandoWeb-1.0-SNAPSHOT.jar
