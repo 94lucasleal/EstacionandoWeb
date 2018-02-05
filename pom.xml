@@ -50,6 +50,13 @@
                             <mainClass>com.lucas.senac.rn.Loader</mainClass>
                         </manifest>
                     </archive>
+                            <assembleDirectory>target</assembleDirectory>
+                            <programs>
+                                <program>
+                                    <mainClass>com.lucas.senac.rn.Loader</mainClass>
+                                    <name>EstacionandoWeb</name>
+                                </program>
+                            </programs>
                 </configuration>
             </plugin>
         </plugins>
