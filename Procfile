@@ -1,1 +1,1 @@
-web:    java -cp target/classes:target/dependency/* com/lucas/senac/rn/Loader
+web: java -jar target/EstacionandoWeb-1.0-SNAPSHOT.jar
